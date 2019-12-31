@@ -8,99 +8,20 @@
     <artifactId>lib</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>7</maven.compiler.release>
         <maven.compiler.source>7</maven.compiler.source>
         <maven.compiler.target>7</maven.compiler.target>
-
-        <aspectj.plugin.version>1.12.1</aspectj.plugin.version>
-        <aspectjtools.version>1.9.4</aspectjtools.version>
-        <aspectj.version>1.9.2</aspectj.version>
-        <aspectjweaver.version>1.9.4</aspectjweaver.version>
-        <aspectj-maven-plugin.version>1.12.1</aspectj-maven-plugin.version>
+        <maven.compiler.release>7</maven.compiler.release>
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
-
     <dependencies>
-
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectjweaver.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjtools</artifactId>
-            <version>${aspectjtools.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.nickwongdev</groupId>
-            <artifactId>aspectj-maven-plugin</artifactId>
-            <version>${aspectj.plugin.version}</version>
-        </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.nickwongdev</groupId>
-                <artifactId>aspectj-maven-plugin</artifactId>
-                <version>${aspectj.plugin.version}</version>
-                <configuration>
-                    <showWeaveInfo>true</showWeaveInfo>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <configuration>
-                            <complianceLevel>${maven.compiler.release}</complianceLevel>
-                            <source>${maven.compiler.release}</source>
-                            <target>${maven.compiler.release}</target>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjtools</artifactId>
-                        <version>${aspectjtools.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjrt</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
 </project>
