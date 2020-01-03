@@ -7,4 +7,10 @@ public class IAspectDefaultImpl implements IAspect
     {
         return "hello";
     }
+    
+    @Override
+    public boolean equals(Object obj)
+    {
+        return false;
+    }
 }
