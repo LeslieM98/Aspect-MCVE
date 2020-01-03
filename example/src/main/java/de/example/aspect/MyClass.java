@@ -7,9 +7,9 @@ public class MyClass
         System.out.println("Test");
     }
 
-    public static void main(String[] args) {
-        System.out.println(
-          ((IAspect) new MyClass()).hello()
-        );
+    public static void main(String[] args)
+    {
+        MyClass a = new MyClass();
+        System.out.println(a.equals(a));
     }
 }
