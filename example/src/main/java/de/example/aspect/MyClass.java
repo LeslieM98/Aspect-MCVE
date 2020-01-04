@@ -1,15 +1,18 @@
 package de.example.aspect;
 
-@SomeAnnotation
-public class MyClass
-{
-    public MyClass(){
-        System.out.println("Test");
-    }
+import de.example.aspect.MyAspect.MyInterface;
 
-    public static void main(String[] args)
-    {
-        MyClass a = new MyClass();
-        System.out.println(a.equals(a));
-    }
+@SomeAnnotation
+public class MyClass {
+  public MyClass() {
+    System.out.println("Test");
+  }
+
+  public static void main(String[] args) {
+    MyClass myClass = new MyClass();
+    MyInterface myInterface = (MyInterface) myClass;
+    System.out.println(myClass.equals(myClass));
+    System.out.println(myInterface.equals(myInterface));
+    System.out.println(myInterface.hello());
+  }
 }
